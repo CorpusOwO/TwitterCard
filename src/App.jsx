@@ -1,11 +1,13 @@
-import TwitterFollowCard from "./components/TwitterFollowCard"
+
+import WhoToFollowContainer from "./components/WhoToFollowContainer"
+import data from './data'
 
 function App() {
 
 
   return (
     <div className="w-screen h-screen bg-neutral-900">
-      <TwitterFollowCard name={"david"} username={"david"} isFollowing />
+      <WhoToFollowContainer users={data} />
     </div>
   )
 }
