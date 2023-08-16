@@ -16,7 +16,7 @@ const users = [
         name: "BTS",
         username: "bangTangTv",
         following: false,
-        userPic: "https://unavatar.io/kpop"
+        userPic: "https://unavatar.io/CorpusOwO"
     },
     {
         name: "davisito UwU",
