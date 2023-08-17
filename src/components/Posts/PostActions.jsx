@@ -1,16 +1,24 @@
-import {
-  FaComment,
-  FaRetweet,
-  FaHeart,
-  FaChartSimple,
-  FaUpload,
-} from "react-icons/fa6";
-function PostActions() {
+import { FaRetweet, FaChartSimple, FaUpload, FaHeart } from "react-icons/fa6";
+import { BsChat, BsSuitHeart } from "react-icons/bs";
+import { useState } from "react";
+import CommetingPost from "./CommetingPost";
+
+function PostActions({ likes = 100 }) {
+  const [isLiked, SetIsLiked] = useState(false);
+  const [like, setLike] = useState(likes);
+  const [isRepliying, setIsRepliying] = useState(false);
+
+  if (isRepliying) {
+    return <CommetingPost />;
+  }
   return (
     <div className="text-gray-500 dark:text-gray-400 flex mt-3 justify-around ">
-      <div className="flex items-center mr-6 group hover:cursor-pointer ">
+      <div
+        className="flex items-center mr-6 group hover:cursor-pointer"
+        onClick={() => setIsRepliying(true)}
+      >
         <span className="p-2 rounded-3xl group-hover:bg-[#1d9cf025] transition ease-in-out delay-[35ms]">
-          <FaComment className="group-hover:[#1d9cf025]" />
+          <BsChat />
         </span>
         <span className="ml-2 group-hover:text-[#1d9bf0] transition ease-in-out delay-[35ms]">
           615
@@ -26,12 +34,18 @@ function PostActions() {
         </span>
       </div>
 
-      <div className="flex items-center mr-6 group hover:cursor-pointer">
+      <div
+        className="flex items-center mr-6 group hover:cursor-pointer"
+        onClick={() => {
+          SetIsLiked(isLiked ? false : true);
+          isLiked ? setLike((like) => like - 1) : setLike((like) => like + 1);
+        }}
+      >
         <span className=" p-2 rounded-3xl group-hover:bg-[#e6177870] transition ease-in-out delay-[35ms]">
-          <FaHeart />
+          {isLiked ? <FaHeart color="#e61777" /> : <BsSuitHeart />}
         </span>
         <span className="ml-2 group-hover:text-[#e61777] transition ease-in-out delay-[35ms]">
-          103
+          {like}
         </span>
       </div>
 
