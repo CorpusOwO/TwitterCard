@@ -10,7 +10,7 @@ return (
     <div className="flex items-center mr-6">
         <FaRetweet />
         <span className="ml-3">93</span>
-    </div>
+    </div> 
     <div className="flex items-center mr-6">
         <FaHeart />
         <span className="ml-3">103</span>
