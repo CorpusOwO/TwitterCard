@@ -1,15 +1,15 @@
-import React from 'react'
+import UserPic from "./UserPic";
 
-function SmallUserProfile({userPic, name, username}) {
+function SmallUserProfile({ userPic, name = "default", username = "default" }) {
   return (
-    <div className='flex gap-4'>
-    <img src={userPic} alt="profile user pic" className=' w-12 h-12 rounded-full' />
-    <div>
-      <p className='font-semibold'>{name}</p>
-      <small className='text-gray-400'> @{username} </small>
+    <div className="flex gap-4">
+      <div className="">
+        <UserPic userPic={userPic} className="inline-block" />
+        <p className="font-semibold text-white">{name}</p>
+        <small className="text-gray-400"> @{username} </small>
+      </div>
     </div>
-  </div>
-  )
+  );
 }
 
-export default SmallUserProfile
+export default SmallUserProfile;
